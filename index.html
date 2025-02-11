@@ -664,10 +664,16 @@
         .services-grid-container {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, minmax(400px, auto));
           gap: 1px;
           background-color: rgba(255, 255, 255, 0.1);
           max-width: 1400px;
           margin: 0 auto;
+        }
+
+        .services-grid-item:first-child {
+          grid-column: span 2;
+          grid-row: span 2;
         }
 
         .services-grid-item {
@@ -970,7 +976,7 @@
                 <p class="slide-description">Optimisez vos opérations avec nos solutions Smart Warehouse.</p>
             </div>
         </div>
-        <div class="slide" style="background-image: url('images/Robot_gestion_entrepot.webp')">
+        <div class="slide" style="background-image: url('images/Smart_meeting.webp')">
             <div class="slide-content">
                 <h1 class="slide-title">Solutions sur mesure pour votre confort</h1>
                 <p class="slide-description">L'excellence au service de votre bien-être.</p>
@@ -1007,7 +1013,7 @@
         </div>
         <div class="content-center">
             <h2>DESIGN PHILOSOPHY AND VISION AT GLASI</h2>
-            <p>At Glasi, we're passionate about transforming spaces into unique and inspiring interiors. Our expert team of designers combines creativity and functionality to breathe life into every project. Whether you're looking to revamp your home, office, or any other space, we're here to turn your vision into reality. Explore our diverse range of interior design services and let's embark on a journey to redefine your space today.</p>
+            <p>At Glasi, we're passionate about transforming spaces into unique and inspiring interiors. Our expert team of designers combines creativity and functionality to breathe life into every project. Whether you're looking to revamp your home, office, or any other space, we're here to turn your vision into reality. Explore our diverse range ofinterior design servicesand let's embark on a journey to redefine your space today.</p>
             <div class="cta-buttons">
                 <button class="cta-button primary">VIEW PROJECTS</button>
                 <button class="cta-button secondary">ABOUT US</button>
