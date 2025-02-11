@@ -806,80 +806,106 @@
             }
         }
 
-        /* New styles for section-three */
-        .process-step {
-            min-height: 50vh;
-            transition: opacity 0.5s;
-            position: absolute;
-            width: 100%;
+
+        .services-grid-section {
+          background-color: #1C1F21;
+          padding: 6rem 0;
         }
 
-        .process-step.active {
-            opacity: 1;
-            z-index: 1;
+        .services-grid-container {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1px;
+          background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .process-step:not(.active) {
-            opacity: 0;
-            z-index: 0;
+        .services-grid-item {
+          position: relative;
+          padding: 4rem 2rem;
+          text-decoration: none;
+          color: white;
+          background-color: #1C1F21;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 2rem;
+          transition: all 0.3s ease;
         }
 
-        #process-content {
-            position: relative;
+        .services-grid-item:hover {
+          background-color: #252829;
         }
 
-        .step-icon {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
+        .services-grid-content {
+          max-width: 600px;
         }
 
-        .step-icon svg {
-            width: 24px;
-            height: 24px;
-            color: #7AB51D;
+        .services-grid-title {
+          font-family: 'Inter', sans-serif;
+          font-size: 2.5rem;
+          font-weight: 400;
+          margin-bottom: 1rem;
+          color: white;
         }
 
-        .step-title {
-            color: white;
-            font-size: 1.875rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
+        .services-grid-description {
+          font-family: 'Inter', sans-serif;
+          font-size: 1.1rem;
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.6;
         }
 
-        .step-description {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 2rem;
-            max-width: 32rem;
+        .services-grid-number {
+          font-family: 'Inter', sans-serif;
+          font-size: 2.5rem;
+          font-weight: 400;
+          color: white;
+          opacity: 0.5;
+          align-self: start;
         }
 
-        .step-list {
-            list-style: none;
-            padding: 0;
+        .services-grid-arrow {
+          position: absolute;
+          bottom: 4rem;
+          right: 2rem;
+          opacity: 0;
+          transform: translateX(-20px);
+          transition: all 0.3s ease;
+          color: white;
         }
 
-        .step-list li {
-            display: flex;
-            align-items: center;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1rem;
+        .services-grid-item:hover .services-grid-arrow {
+          opacity: 1;
+          transform: translateX(0);
         }
 
-        .step-list li::before {
-            content: "✦";
-            color: #7AB51D;
-            margin-right: 0.75rem;
+        @media (min-width: 768px) {
+          .services-grid-container {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          }
         }
 
-        .bg-black {
-            background-color: black;
-        }
+        @media (max-width: 768px) {
+          .services-grid-item {
+            padding: 2rem 1rem;
+          }
 
+          .services-grid-title {
+            font-size: 1.75rem;
+          }
+
+          .services-grid-description {
+            font-size: 1rem;
+          }
+
+          .services-grid-number {
+            font-size: 2rem;
+          }
+
+          .services-grid-arrow {
+            bottom: 2rem;
+            right: 1rem;
+          }
+        }
     </style>
 </head>
 <body>
@@ -966,31 +992,46 @@
         </div>
     </section>
 
-    <section class="bg-black relative py-20" id="process-section">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="sticky top-[20vh]">
-                <div class="mb-8">
-                    <p class="text-white/70 text-sm tracking-wider mb-2">Process</p>
-                    <h2 class="text-white text-6xl font-bold tracking-tight">OUR SOLUTIONS</h2>
-                </div>
-
-                <div class="flex gap-20">
-                    <div class="relative w-[400px] h-[400px] flex-shrink-0">
-                        <div class="w-full h-full rounded-full border-2 border-white flex items-center justify-center">
-                            <div class="text-center">
-                                <div class="text-white/70 uppercase tracking-wider text-sm mb-2">STEPS</div>
-                                <div class="text-white text-4xl font-bold"><span id="currentStep">1</span> / 4</div>
-                            </div>
-                        </div>
+    <section class="services-grid-section">
+        <div class="container">
+            <div class="services-grid-container">
+                <a href="#" class="services-grid-item">
+                    <div class="services-grid-content">
+                        <h2 class="services-grid-title">Custom design projects</h2>
+                        <p class="services-grid-description">We craft unique design projects that blend your style and preferences with professional creativity</p>
                     </div>
-
-                    <div class="flex-1 pt-10" id="process-content">
-                        <!-- Les étapes seront injectées ici par JavaScript -->
+                    <div class="services-grid-number">01</div>
+                    <div class="services-grid-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
                     </div>
-                </div>
+                </a>
+                <a href="#" class="services-grid-item">
+                    <div class="services-grid-content">
+                        <h2 class="services-grid-title">3D Visualization</h2>
+                        <p class="services-grid-description">Envision your future interior in detail with our realistic 3D visualizations</p>
+                    </div>
+                    <div class="services-grid-number">02</div>
+                    <div class="services-grid-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
+                <a href="#" class="services-grid-item">
+                    <div class="services-grid-content">
+                        <h2 class="services-grid-title">Furniture and decor selection</h2>
+                        <p class="services-grid-description">Let us assist you in choosing and decorating with furniture and decor that seamlessly fit your interior</p>
+                    </div>
+                    <div class="services-grid-number">03</div>
+                    <div class="services-grid-arrow">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </a>
             </div>
-            <!-- Espace pour permettre le défilement -->
-            <div class="h-[200vh]"></div>
         </div>
     </section>    <section class="features">
         <div class="features-grid">
