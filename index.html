@@ -656,6 +656,91 @@
             height: 100%;
         }
 
+        .services-grid-section {
+          background-color: #1C1F21;
+          padding: 8rem 0;
+        }
+
+        .services-grid-container {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1px;
+          background-color: rgba(255, 255, 255, 0.1);
+          max-width: 1400px;
+          margin: 0 auto;
+        }
+
+        .services-grid-item {
+          position: relative;
+          padding: 4rem;
+          text-decoration: none;
+          color: white;
+          background-color: #1C1F21;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          min-height: 400px;
+          transition: background-color 0.3s ease;
+        }
+
+        .services-grid-item:first-child {
+          grid-column: span 2;
+        }
+
+        .services-grid-item:hover {
+          background-color: #252829;
+        }
+
+        .services-grid-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          margin-bottom: 2rem;
+        }
+
+        .services-grid-title {
+          font-family: 'Inter', sans-serif;
+          font-size: 2.5rem;
+          font-weight: 400;
+          color: white;
+          margin: 0;
+          line-height: 1.2;
+          max-width: 80%;
+        }
+
+        .services-grid-number {
+          font-family: 'Inter', sans-serif;
+          font-size: 2.5rem;
+          font-weight: 400;
+          color: white;
+          opacity: 0.5;
+        }
+
+        .services-grid-description {
+          font-family: 'Inter', sans-serif;
+          font-size: 1.1rem;
+          color: rgba(255, 255, 255, 0.7);
+          line-height: 1.6;
+          margin-bottom: 4rem;
+          max-width: 90%;
+        }
+
+        .services-grid-footer {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .services-grid-arrow {
+          opacity: 0;
+          transform: translateX(-20px);
+          transition: all 0.3s ease;
+        }
+
+        .services-grid-item:hover .services-grid-arrow {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
         @media (min-width: 768px) {
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -806,91 +891,13 @@
             }
         }
 
-
-        .services-grid-section {
-          background-color: #1C1F21;
-          padding: 8rem 0;
-        }
-
-        .services-grid-container {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 1px;
-          background-color: rgba(255, 255, 255, 0.1);
-          max-width: 1400px;
-          margin: 0 auto;
-        }
-
-        .services-grid-item {
-          position: relative;
-          padding: 4rem;
-          text-decoration: none;
-          color: white;
-          background-color: #1C1F21;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          min-height: 400px;
-          transition: background-color 0.3s ease;
-        }
-
-        .services-grid-item:hover {
-          background-color: #252829;
-        }
-
-        .services-grid-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          margin-bottom: 2rem;
-        }
-
-        .services-grid-title {
-          font-family: 'Inter', sans-serif;
-          font-size: 2.5rem;
-          font-weight: 400;
-          color: white;
-          margin: 0;
-          line-height: 1.2;
-          max-width: 80%;
-        }
-
-        .services-grid-number {
-          font-family: 'Inter', sans-serif;
-          font-size: 2.5rem;
-          font-weight: 400;
-          color: white;
-          opacity: 0.5;
-        }
-
-        .services-grid-description {
-          font-family: 'Inter', sans-serif;
-          font-size: 1.1rem;
-          color: rgba(255, 255, 255, 0.7);
-          line-height: 1.6;
-          margin-bottom: 4rem;
-          max-width: 90%;
-        }
-
-        .services-grid-footer {
-          display: flex;
-          justify-content: flex-end;
-        }
-
-        .services-grid-arrow {
-          opacity: 0;
-          transform: translateX(-20px);
-          transition: all 0.3s ease;
-        }
-
-        .services-grid-item:hover .services-grid-arrow {
-          opacity: 1;
-          transform: translateX(0);
-        }
-
         @media (max-width: 1024px) {
           .services-grid-container {
             grid-template-columns: 1fr;
+          }
+          
+          .services-grid-item:first-child {
+            grid-column: 1;
           }
           
           .services-grid-item {
