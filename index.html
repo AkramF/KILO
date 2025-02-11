@@ -297,7 +297,7 @@
         }
 
         .image-left, .image-right {
-            width: 20%;
+            width: 18%; /* Réduit de 20% à 18% */
             height: 400px;
             overflow: hidden;
         }
@@ -309,7 +309,7 @@
         }
 
         .content-center {
-            width: 60%;
+            width: 64%; /* Augmenté de 60% à 64% pour compenser la réduction des images */
             text-align: center;
             padding: 0 2rem;
         }
@@ -807,120 +807,79 @@
         }
 
         /* New styles for section-three */
-        .section-three {
-            padding: 4rem 0;
-            background-color: var(--background);
-        }
-
-        .section-three-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .section-three-item {
-            position: relative;
-            min-height: 400px;
-            padding: 2rem;
-            text-decoration: none;
-            color: white;
-            background-color: black;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            cursor: pointer;
-        }
-
-        .section-three-overlay {
+        .process-step {
+            min-height: 50vh;
+            transition: opacity 0.5s;
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            transition: opacity 0.5s ease;
+            width: 100%;
+        }
+
+        .process-step.active {
             opacity: 1;
-        }
-
-        .section-three-item:hover .section-three-overlay {
-            opacity: 0.3;
-        }
-
-        .section-three-content {
-            position: relative;
             z-index: 1;
-            transform: translateY(0);
-            transition: transform 0.5s ease;
         }
 
-        .section-three-item:hover .section-three-content {
-            transform: translateY(-20px);
-        }
-
-        .section-three-number {
-            display: block;
-            font-size: 1rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-            opacity: 0.7;
-            letter-spacing: 0.05em;
-        }
-
-        .section-three-title {
-            font-size: 2.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .section-three-text {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            opacity: 0.7;
-            max-width: 300px;
-            font-weight: 300;
-        }
-
-        .section-three-link {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 400;
-            letter-spacing: 0.2em;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #fff;
+        .process-step:not(.active) {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-            text-transform: uppercase;
+            z-index: 0;
         }
 
-        .section-three-item:hover .section-three-link {
-            opacity: 1;
-            transform: translateY(0);
+        #process-content {
+            position: relative;
         }
 
-        @media (max-width: 768px) {
-            .section-three-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-three-item {
-                min-height: 300px;
-            }
+        .step-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
         }
 
-        @media (min-width: 1280px) {
-            .section-three {
-                padding: 6rem 0;
-            }
-
-            .section-three-item {
-                min-height: 500px;
-            }
+        .step-icon svg {
+            width: 24px;
+            height: 24px;
+            color: #7AB51D;
         }
+
+        .step-title {
+            color: white;
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            max-width: 32rem;
+        }
+
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-list li {
+            display: flex;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+        }
+
+        .step-list li::before {
+            content: "✦";
+            color: #7AB51D;
+            margin-right: 0.75rem;
+        }
+
+        .bg-black {
+            background-color: black;
+        }
+
     </style>
 </head>
 <body>
@@ -953,10 +912,10 @@
                 <p class="slide-description">Contrôle tout-en-un. En parfaite harmonie.</p>
             </div>
         </div>
-        <div class="slide" style="background-image: url('images/accès_salle_réunion.webp')">
+        <div class="slide" style="background-image: url('images/Smart_Entrepot.webp')">
             <div class="slide-content">
-                <h1 class="slide-title">Design innovant et technologie de pointe</h1>
-                <p class="slide-description">Une expérience utilisateur exceptionnelle.</p>
+                <h1 class="slide-title">Gestion intelligente des entrepôts</h1>
+                <p class="slide-description">Optimisez vos opérations avec nos solutions Smart Warehouse.</p>
             </div>
         </div>
         <div class="slide" style="background-image: url('images/Robot_gestion_entrepot.webp')">
@@ -1007,52 +966,33 @@
         </div>
     </section>
 
-    <section class="section-three">
-        <div class="container">
-            <div class="section-three-gridthree">
-        <div class="container">
-            <div class="section-three-grid">
-                <div class="section-three-item">
-                    <div class="section-three-content">
-                        <span class="section-three-number">01</span>
-                        <h3 class="section-three-title">DESIGN</h3>
-                        <p class="section-three-text">Explore our design ambitions and vision of modern Glasi interiors.</p>
-                        <span class="section-three-link">VIEW SERVICES</span>
-                    </div>
-                    <div class="section-three-overlay"></div>
+    <section class="bg-black relative py-20" id="process-section">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="sticky top-[20vh]">
+                <div class="mb-8">
+                    <p class="text-white/70 text-sm tracking-wider mb-2">Process</p>
+                    <h2 class="text-white text-6xl font-bold tracking-tight">OUR SOLUTIONS</h2>
                 </div>
-                <div class="section-three-item">
-                    <div class="section-three-content">
-                        <span class="section-three-number">02</span>
-                        <h3 class="section-three-title">CONCEPT</h3>
-                        <p class="section-three-text">Explore our design ambitions and vision of modern Glasi interiors.</p>
-                        <span class="section-three-link">VIEW SERVICES</span>
+
+                <div class="flex gap-20">
+                    <div class="relative w-[400px] h-[400px] flex-shrink-0">
+                        <div class="w-full h-full rounded-full border-2 border-white flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-white/70 uppercase tracking-wider text-sm mb-2">STEPS</div>
+                                <div class="text-white text-4xl font-bold"><span id="currentStep">1</span> / 4</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="section-three-overlay"></div>
-                </div>
-                <div class="section-three-item">
-                    <div class="section-three-content">
-                        <span class="section-three-number">03</span>
-                        <h3 class="section-three-title">PLANNING</h3>
-                        <p class="section-three-text">Explore our design ambitions and vision of modern Glasi interiors.</p>
-                        <span class="section-three-link">VIEW SERVICES</span>
+
+                    <div class="flex-1 pt-10" id="process-content">
+                        <!-- Les étapes seront injectées ici par JavaScript -->
                     </div>
-                    <div class="section-three-overlay"></div>
-                </div>
-                <div class="section-three-item">
-                    <div class="section-three-content">
-                        <span class="section-three-number">04</span>
-                        <h3 class="section-three-title">3D VISUAL</h3>
-                        <p class="section-three-text">Explore our design ambitions and vision of modern Glasi interiors.</p>
-                        <span class="section-three-link">VIEW SERVICES</span>
-                    </div>
-                    <div class="section-three-overlay"></div>
                 </div>
             </div>
+            <!-- Espace pour permettre le défilement -->
+            <div class="h-[200vh]"></div>
         </div>
-    </section>
-
-    <section class="features">
+    </section>    <section class="features">
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-image">
@@ -1304,6 +1244,105 @@
             // Add scroll lock/unlock functionality here if needed
         });
     });
+
+// Configuration des étapes du processus
+const processSteps = [
+    {
+        step: 1,
+        title: "DISCOVERY & STRATEGY",
+        description: "At the intersection of vision and execution, we bring creative ideas team transforms concepts into compelling narratives.",
+        items: [
+            "Client Meeting",
+            "Research market trends.",
+            "Create project roadmap."
+        ]
+    },
+    {
+        step: 2,
+        title: "PLANNING & DESIGN",
+        description: "Our expert team carefully plans and designs solutions that align perfectly with your objectives.",
+        items: [
+            "Design Concepts",
+            "Technical Planning",
+            "Resource Allocation"
+        ]
+    },
+    {
+        step: 3,
+        title: "DEVELOPMENT",
+        description: "We bring designs to life with cutting-edge technology and precise execution.",
+        items: [
+            "Code Implementation",
+            "Quality Testing",
+            "Performance Optimization"
+        ]
+    },
+    {
+        step: 4,
+        title: "DEPLOYMENT",
+        description: "Final testing and smooth deployment ensure your solution performs flawlessly.",
+        items: [
+            "Final Testing",
+            "Deployment",
+            "Post-launch Support"
+        ]
+    }
+];
+
+document.addEventListener('DOMContentLoaded', function() {
+    const processContent = document.getElementById('process-content');
+    const currentStepElement = document.getElementById('currentStep');
+    let currentStep = 1;
+
+    // Créer les éléments HTML pour chaque étape
+    processSteps.forEach(step => {
+        const stepElement = document.createElement('div');
+        stepElement.className = `process-step ${step.step === 1 ? 'active' : ''}`;
+        stepElement.setAttribute('data-step', step.step);
+
+        stepElement.innerHTML = `
+            <div class="step-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 6V12L16 14M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" />
+                </svg>
+            </div>
+            <h3 class="step-title">${step.title}</h3>
+            <p class="step-description">${step.description}</p>
+            <ul class="step-list">
+                ${step.items.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+        `;
+
+        processContent.appendChild(stepElement);
+    });
+
+    // Configuration de l'Intersection Observer
+    const options = {
+        root: null,
+        rootMargin: '-50% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const step = parseInt(entry.target.getAttribute('data-step'));
+                currentStepElement.textContent = step;
+
+                // Mettre à jour les classes active
+                document.querySelectorAll('.process-step').forEach(el => {
+                    el.classList.remove('active');
+                });
+                entry.target.classList.add('active');
+            }
+        });
+    }, options);
+
+    // Observer chaque étape
+    document.querySelectorAll('.process-step').forEach(step => {
+        observer.observe(step);
+    });
+});
 </script>
 </body>
 </html>
